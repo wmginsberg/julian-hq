@@ -9,7 +9,7 @@ This is a basic SPA to monitor the tank vitals for a vivarium. It will stream te
 * Food form page
 * Reads from database
 
-## TODO
+### TODO
 * [P0] Submit form into db
 * [P0] Change route strings
 * [P0] Connect sensor data to node back end on RPi
