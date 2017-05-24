@@ -1,0 +1,85 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-document.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="food-monitor">
+  <template>
+    <style>
+      #title {
+        font-size: 36px;
+        text-align: center;
+      } 
+      #data {
+        text-align: center;
+        font-size: 20px;
+      }
+      img {
+        width: 100px;
+        height: 100px;
+      }
+      table {
+        text-align: left;
+      }
+      td {
+        padding-left: 20px;
+      }
+    </style>
+
+  <firebase-document path="/updates" data="{{updates}}"></firebase-document>  
+  <div class="monitor">
+    <div id="title">
+      Today's Menu
+    </div>
+    <div id="data">
+      <table>
+        <tr><td><img src="../images/{{updates.food.p}}.jpg"></td><td>{{updates.food.p}}</td></tr>
+        <tr><td><img src="../images/{{updates.food.v1}}.jpg"></td><td>{{updates.food.v1}}</td></tr>
+        <tr><td><img src="../images/{{updates.food.v2}}.jpg"></td><td>{{updates.food.v2}}</td></tr>
+        <tr><td><img src="../images/{{updates.food.v3}}.jpg"></td><td>{{updates.food.v3}}</td></tr>
+        </table>
+    </div>
+  </div>
+    
+  </template>
+
+  <script>
+    class FoodMonitor extends Polymer.Element {
+      static get is() { return 'food-monitor'; }
+      static get properties() {
+        return {
+          updates: {
+            type: Object,
+            notify: true,
+            reflectToAttribute: true
+          },
+          protein: {
+            type: String,
+            value: "Kingworms",
+            notify: true,
+            reflectToAttribute: true
+          },
+          veggie1: {
+            type: String,
+            value: "Collard Greens",
+            notify: true,
+            reflectToAttribute: true
+          },
+          veggie2: {
+            type: String,
+            value: "Butternut Squash",
+            notify: true,
+            reflectToAttribute: true
+          },
+          veggie3: {
+            type: String,
+            value: "Strawberries",
+            notify: true,
+            reflectToAttribute: true
+          }
+        }
+      }
+    }
+
+    window.customElements.define(FoodMonitor.is, FoodMonitor);
+  </script>
+</dom-module>

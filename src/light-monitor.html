@@ -1,0 +1,56 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-document.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="light-monitor">
+  <template>
+    <style>
+      #degrees {
+        font-size: 100px;
+      }
+      #metric {
+        font-size: 50px;
+      }
+      #title {
+        font-size: 36px;
+        text-align: center;
+      } 
+      #data {
+        text-align: center;
+        font-size: 100px;
+      }
+    </style>
+  <firebase-document path="/updates" data="{{updates}}"></firebase-document>
+  <div class="monitor">
+    <div id="title">
+      Lights are
+    </div>
+    <div id="data">
+      <template is="dom-if" if="{{updates.lightOn}}">
+        ON
+      </template>
+      <template is="dom-if" if="{{updates.lightOff}}">
+        OFF
+      </template>
+    </div>
+  </div>
+    
+  </template>
+
+  <script>
+    class LightMonitor extends Polymer.Element {
+      static get is() { return 'light-monitor'; }
+      static get properties() {
+        return {
+          updates: {
+            type: Object,
+            notify: true,
+            reflectToAttribute: true
+          }
+        }
+      }
+    }
+
+    window.customElements.define(LightMonitor.is, LightMonitor);
+  </script>
+</dom-module>

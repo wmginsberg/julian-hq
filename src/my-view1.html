@@ -1,0 +1,83 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-database-script.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-storage-script.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-messaging-script.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-document.html">
+<link rel="import" href="temp-monitor.html">
+<link rel="import" href="food-monitor.html">
+<link rel="import" href="light-monitor.html">
+<link rel="import" href="hum-monitor.html">
+
+
+<dom-module id="my-view1">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+
+    <div class="card">
+  <!--     <div class="circle">1</div> -->
+      <temp-monitor></temp-monitor>
+
+    </div>
+    <div class="card">
+  <!--     <div class="circle">1</div> -->
+      <hum-monitor></hum-monitor>
+
+    </div>
+    <div class="card">
+  <!--     <div class="circle">1</div> -->
+      <light-monitor></light-monitor>
+
+    </div>
+    <div class="card">
+  <!--     <div class="circle">1</div> -->
+      <food-monitor></food-monitor>
+
+    </div>
+  </template>
+
+  <script>
+    class MyView1 extends Polymer.Element {
+      static get is() { return 'my-view1'; }
+      static get properties() {
+        return {
+          temp: {
+            type: Number,
+            notify: true,
+            reflectToAttribute: true
+          },
+          lights: {
+            type: Boolean,
+            notify: true,
+            reflectToAttribute: true
+          },
+          foods: {
+            type: Array,
+            notify: true,
+            reflectToAttribute: true
+          },
+          uid: String
+        }
+      }
+
+    }
+
+    window.customElements.define(MyView1.is, MyView1);
+  </script>
+</dom-module>

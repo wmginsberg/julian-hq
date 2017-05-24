@@ -1,0 +1,115 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/polymerfire/polymerfire.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-view2">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+
+      paper-dropdown-menu, paper-listbox, paper-item {
+        width: 100%;
+      }
+    </style>
+
+    <div class="card">
+      <paper-dropdown-menu id="p" label="Protein">
+        <paper-listbox slot="dropdown-content" selected="1">
+          <paper-item>Kingworms</paper-item>
+          <paper-item>Waxworms</paper-item>
+          <paper-item>Dubia Roaches</paper-item>
+          <paper-item>Mealworms</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+
+      <paper-dropdown-menu id="v1" label="Fruit or Veggie">
+        <paper-listbox slot="dropdown-content" selected="1">
+          <paper-item>Collard Greens</paper-item>
+          <paper-item>Dandelion Greens</paper-item>
+          <paper-item>Mustard Greens</paper-item>
+          <paper-item>Mixed Greens</paper-item>
+          <paper-item>Butternut Squash</paper-item>
+          <paper-item>Yellow Squash</paper-item>
+          <paper-item>Apples</paper-item>
+          <paper-item>Strawberries</paper-item>
+          <paper-item>Raisins</paper-item>
+          <paper-item>Blueberries</paper-item>
+          <paper-item>Broccoli</paper-item>
+          <paper-item>Bell Pepper</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+
+      <paper-dropdown-menu id="v2" label="Fruit or Veggie">
+        <paper-listbox slot="dropdown-content" selected="1">
+          <paper-item>Collard Greens</paper-item>
+          <paper-item>Dandelion Greens</paper-item>
+          <paper-item>Mustard Greens</paper-item>
+          <paper-item>Mixed Greens</paper-item>
+          <paper-item>Butternut Squash</paper-item>
+          <paper-item>Yellow Squash</paper-item>
+          <paper-item>Apples</paper-item>
+          <paper-item>Strawberries</paper-item>
+          <paper-item>Raisins</paper-item>
+          <paper-item>Blueberries</paper-item>
+          <paper-item>Broccoli</paper-item>
+          <paper-item>Bell Pepper</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+
+      <paper-dropdown-menu id="v3" label="Fruit or Veggie">
+        <paper-listbox slot="dropdown-content" selected="1">
+          <paper-item>Collard Greens</paper-item>
+          <paper-item>Dandelion Greens</paper-item>
+          <paper-item>Mustard Greens</paper-item>
+          <paper-item>Mixed Greens</paper-item>
+          <paper-item>Butternut Squash</paper-item>
+          <paper-item>Yellow Squash</paper-item>
+          <paper-item>Apples</paper-item>
+          <paper-item>Strawberries</paper-item>
+          <paper-item>Raisins</paper-item>
+          <paper-item>Blueberries</paper-item>
+          <paper-item>Broccoli</paper-item>
+          <paper-item>Bell Pepper</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+
+      <paper-button on-tap="sendData">SUBMIT</paper-button>
+      
+    </div>
+  </template>
+
+  <script>
+    class MyView2 extends Polymer.Element {
+      static get is() { return 'my-view2'; }
+
+      sendData() {
+        firebase.app('julian-hq').database().ref('/updates/food').update({
+          p: this.$.p.selectedItem, 
+          v1: this.$.v1.selectedItem, 
+          v2: this.$.v2.selectedItem,
+          v3: this.$.v3.selectedItem
+        });
+      }
+    }
+
+    window.customElements.define(MyView2.is, MyView2);
+  </script>
+</dom-module>
