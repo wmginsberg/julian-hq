@@ -40,6 +40,7 @@ app.get('/data/:thl', function (req, res) {
 	} else {
 		res.send("lol wat");
 	}
+  res.redirect('/');
 });
 
 function isValid(thl) {
