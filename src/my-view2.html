@@ -14,6 +14,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/polymerfire/polymerfire.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-app.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-view2">
@@ -29,6 +30,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         width: 100%;
       }
     </style>
+
+    <firebase-app
+          api-key="AIzaSyDrmstgzMqLGcrq7xpxuYCcTi0LzucVfF0"
+          auth-domain="julian-hq.firebaseapp.com"
+          database-url="https://julian-hq.firebaseio.com"
+          storage-bucket="julian-hq.appspot.com"
+          project-id="julian-hq"
+          messaging-sender-id="635857217481">
+      </firebase-app>
 
     <div class="card">
       <paper-dropdown-menu id="p" label="Protein">
@@ -95,13 +105,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       
     </div>
   </template>
-
+  <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
   <script>
     class MyView2 extends Polymer.Element {
       static get is() { return 'my-view2'; }
 
       sendData() {
-        firebase.app('julian-hq').database().ref('/updates/food').update({
+        firebase.app('julian-hq').database().ref('/updates/current/food').update({
           p: this.$.p.selectedItem, 
           v1: this.$.v1.selectedItem, 
           v2: this.$.v2.selectedItem,

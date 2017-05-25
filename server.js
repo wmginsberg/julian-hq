@@ -31,13 +31,35 @@ var port = process.env.PORT || 8080;
 // Get a reference to the database service
 var database = firebase.database();
 
-// Initializing variables
-var numbers = [];
-var searchTexts = [];
-var dict_of_texts = [];
-var counter = 0;
-var size = 0;
+app.get('/data/:thl', function (req, res) {
+  console.log('/data');
+  var thl = req.params.thl;
+  if (isValid(thl)) {
+	  var thl_s = thl.split('-');
+	  writeUserData(thl_s[0], thl_s[1], thl_s[2]);  	
+	} else {
+		res.send("lol wat");
+	}
+});
 
+function isValid(thl) {
+	var thl_s = thl.split('-');
+	if (thl_s.length == 3) {
+		var temp = parseInt(thl_s[0]);
+		var hum = parseInt(thl_s[1]);
+		var light = thl_s[2];
+		if (light == 'true') {
+			light = true;
+		} else if (light == 'false') {
+			light = false;
+		} else {
+			light = 0;
+		}
+		return (Number.isInteger(temp) && Number.isInteger(hum) && !Number.isInteger(light));
+	} else {
+		return false;
+	}
+}
 // Write data to db
 function writeUserData(temp,hum,lightOn) {
   var date = Date();
@@ -111,7 +133,13 @@ function parseDate(date) {
 // 	getPhotos(numbers,searchTexts);
 // });
 
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
 
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
 
 // // Bundle of content to send to user (number, url, and search text)
 // function sendMessages(item) {
