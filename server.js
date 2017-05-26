@@ -138,10 +138,9 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})
-
+var server = app.listen(port, function() {
+  console.log('Listening on port '+ port || 8085);
+});
 // // Bundle of content to send to user (number, url, and search text)
 // function sendMessages(item) {
 // 	var textNum = item['num'];
