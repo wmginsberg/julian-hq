@@ -4,7 +4,7 @@
 This is a basic SPA to monitor the tank vitals for a vivarium. It will stream temperature, humidity, and light status from an Arduino/Raspberry pi, and will document feedings.
 * The **website** is built with Polymer and Node.js/Express, with Firebase as a db and for static hosting. The data server is hosted on Heroku. 
 * I am using a modified **Arduino Uno** that I built myself (so no particular brand), with a DHT22 sensor plugged directly into the board on 2, 5V, and GND. The sketches on Arduino are written in modified C/C++.
-* I am using a **Raspberry Pi 3 Model B+** connected to the Pi through USB and communicating over Serial. The Raspberri Pi code is in Python. 
+* I am using a **Raspberry Pi 3 Model B+** connected to the Pi through USB and communicating over Serial. The Raspberry Pi code is in Python using `serial`, `requests`, and `time`. 
 
 
 ## Progress
