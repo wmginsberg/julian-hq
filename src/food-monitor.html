@@ -14,14 +14,24 @@
         font-size: 20px;
       }
       img {
-        width: 100px;
-        height: 100px;
+        width: 10%;
       }
       table {
         text-align: left;
       }
       td {
         padding-left: 20px;
+      }
+      #row1, #row2, #row3, #row4 {
+        width: 100%;
+      }
+      img.ooo {
+        opacity: 0.2;
+        filter: alpha(opacity=20); /* For IE8 and earlier */
+      }
+      img.ooo:hover {
+        opacity: 1.0;
+        filter: alpha(opacity=100); /* For IE8 and earlier */
       }
     </style>
 
@@ -31,12 +41,27 @@
       Today's Menu
     </div>
     <div id="data">
-      <table>
-        <tr><td><img src="../images/{{updates.food.p}}.jpg"></td><td>{{updates.food.p}}</td></tr>
-        <tr><td><img src="../images/{{updates.food.v1}}.jpg"></td><td>{{updates.food.v1}}</td></tr>
-        <tr><td><img src="../images/{{updates.food.v2}}.jpg"></td><td>{{updates.food.v2}}</td></tr>
-        <tr><td><img src="../images/{{updates.food.v3}}.jpg"></td><td>{{updates.food.v3}}</td></tr>
-        </table>
+      <div id="row1">
+        <img class="ooo" src="https://firebasestorage.googleapis.com/v0/b/julian-hq.appspot.com/o/kale.jpg?alt=media&token=c6f1b0fd-6e68-4694-98f1-953a33c038a5" id="Kale"/>
+        <img class="" src="https://firebasestorage.googleapis.com/v0/b/julian-hq.appspot.com/o/arugula.jpg?alt=media&token=b954f252-dd8f-445f-a280-7654b5be4c47" id="Arugula"/>
+        <img class="ooo" src="https://firebasestorage.googleapis.com/v0/b/julian-hq.appspot.com/o/collard%20greens.jpg?alt=media&token=cf31a61a-07d1-4f29-9c4c-ec450ddd2de9" id="Collard_Greens"/>
+        <img class="ooo" src="https://firebasestorage.googleapis.com/v0/b/julian-hq.appspot.com/o/dandelion%20greens.JPG?alt=media&token=474557f6-4543-4704-a31f-477c639bb89a" id="Dandelion_Greens"/>
+        <img class="" src="https://firebasestorage.googleapis.com/v0/b/julian-hq.appspot.com/o/sweet%20pepper.jpg?alt=media&token=bce0bd54-02e7-4df6-8304-8d886186181d" id="Sweet_Pepper"/>
+        <img class="" src="https://firebasestorage.googleapis.com/v0/b/julian-hq.appspot.com/o/carrots.jpg?alt=media&token=0533aaaf-92e4-41bb-a8eb-b9058e9ee026" id="Carrots"/>
+        <img class="ooo" src="https://firebasestorage.googleapis.com/v0/b/julian-hq.appspot.com/o/broccoli.jpg?alt=media&token=ba78bd9d-1b46-4fc2-aa36-8ea383db7a86" id="Broccoli"/>
+        <img class="ooo" src="https://firebasestorage.googleapis.com/v0/b/julian-hq.appspot.com/o/butternut%20squash.jpg?alt=media&token=d313e20e-20ac-42af-bb01-18eb8d257570" id="Butternut_Squash"/>
+      </div>
+      <div id="row2">
+        <img class="ooo" src="https://firebasestorage.googleapis.com/v0/b/julian-hq.appspot.com/o/strawberries.jpg?alt=media&token=a6d5177e-00d2-400b-a438-fcf9297c332d" id="Strawberries"/>
+        <img class="ooo" src="https://firebasestorage.googleapis.com/v0/b/julian-hq.appspot.com/o/raspberries.jpg?alt=media&token=ba9da6cc-7093-4941-8136-67e14b068e90" id="Raspberries"/>
+        <img class="ooo" src="https://firebasestorage.googleapis.com/v0/b/julian-hq.appspot.com/o/apples.jpg?alt=media&token=23dde0f9-5f32-4a7e-a7f9-518233fe36b2" id="Apples"/>
+        <img class="ooo" src="images/strawberries.jpg" id="Raisins"/>
+        <img class="" src="https://firebasestorage.googleapis.com/v0/b/julian-hq.appspot.com/o/kingworms.jpg?alt=media&token=c9215ff2-e8a4-45f6-b9e2-46f65ae8e935" id="Kingworms"/>
+        <img class="ooo" src="https://firebasestorage.googleapis.com/v0/b/julian-hq.appspot.com/o/waxworms.jpeg?alt=media&token=bf96a8c0-4f43-4cf7-ab11-aa827951e170" id="Waxworms"/>
+        <img class="ooo" src="https://firebasestorage.googleapis.com/v0/b/julian-hq.appspot.com/o/watermelon.jpg?alt=media&token=b4588b58-3852-4796-a0b2-62a5fa2bb85d" id="Watermelon"/>
+        <img class="ooo" src="https://firebasestorage.googleapis.com/v0/b/julian-hq.appspot.com/o/blueberries.jpg?alt=media&token=2984191e-9bdd-429f-9a65-d617b4cfcacc" id="Blueberries"/>
+        <!-- </td><td>{{updates.food.v3}}</td></tr> -->
+      </div>
     </div>
   </div>
     
